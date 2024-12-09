@@ -12,9 +12,7 @@ The results are compared based on accuracy, precision, recall, F1-score, and con
 The features of the dataset are normalized using StandardScaler to ensure that each feature contributes equally to the models.
 """
 from sklearn.datasets import load_breast_cancer
-
 my_data = load_breast_cancer()
-
 print(my_data.DESCR)
 
 #######################################################
@@ -56,7 +54,6 @@ plt.show()
 The dataset is split into training and testing subsets.
 """
 from sklearn.model_selection import train_test_split
-
 X_train, X_test, Y_train, Y_test = train_test_split(my_data.data, my_data.target, test_size= 0.25, random_state= 53, )
 
 #########################################################
@@ -116,6 +113,7 @@ random_forest_prediction = model_random_forest.predict(X_test)
 decision_tree_prediction= model_decision_tree.predict(X_test)
 ada_boost_prediction = model_adaboost.predict(X_test)
 # Random Forest Model:
+
 random_forest_accuracy= accuracy_score(Y_test,random_forest_prediction)
 random_forest_confusion= confusion_matrix(Y_test,random_forest_prediction)
 random_forest_precision= precision_score(Y_test,random_forest_prediction, average='weighted' )

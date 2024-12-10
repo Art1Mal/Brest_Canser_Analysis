@@ -163,9 +163,12 @@ results = pd.DataFrame({
     "Recall": [decision_tree_recall, random_forest_recall, ada_boost_recall],
     "F1-score": [decision_tree_f1, random_forest_f1, ada_boost_f1]
 })
-
 print(results)
-
-best_model = results.loc[results["Accuracy"].idxmax(), "Model"]
+if decision_tree_accuracy > random_forest_accuracy and decision_tree_accuracy > ada_boost_accuracy:
+    best_model = "Decision Tree"
+elif random_forest_accuracy > decision_tree_accuracy and random_forest_accuracy > ada_boost_accuracy:
+    best_model = "Random Forest"
+else:
+    best_model = "AdaBoost"
 print(f"The winner: {best_model}")
 #############################################################

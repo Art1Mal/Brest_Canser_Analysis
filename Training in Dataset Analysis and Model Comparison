@@ -55,7 +55,8 @@ The dataset is split into training and testing subsets.
 """
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(my_data.data, my_data.target, test_size= 0.25, random_state= 53, )
-
+print(f"Training data: {X_train.shape}, {Y_train.shape}")
+print(f"Testing data: {X_test.shape}, {Y_test.shape}")
 #########################################################
 # Decision Tree Classifier
 from sklearn.tree import DecisionTreeClassifier

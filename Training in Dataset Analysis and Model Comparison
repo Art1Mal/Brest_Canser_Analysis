@@ -156,3 +156,16 @@ print(f"AdaBoost Recall: {ada_boost_recall}")
 print(f"AdaBoost F1-Score: {ada_boost_f1}")
 print(f"Confusion Matrix For AdaBoost:{ada_boost_confusion}")
 ###########################################################
+results = pd.DataFrame({
+    "Model": ["Decision Tree", "Random Forest", "AdaBoost"],
+    "Accuracy": [decision_tree_accuracy, random_forest_accuracy, ada_boost_accuracy],
+    "Precision": [decision_tree_precision, random_forest_precision, ada_boost_precision],
+    "Recall": [decision_tree_recall, random_forest_recall, ada_boost_recall],
+    "F1-score": [decision_tree_f1, random_forest_f1, ada_boost_f1]
+})
+
+print(results)
+
+best_model = results.loc[results["Accuracy"].idxmax(), "Model"]
+print(f"The winner: {best_model}")
+#############################################################
